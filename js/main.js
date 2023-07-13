@@ -97,6 +97,8 @@ $('.skill').on('click', function () {
   $('html, body').animate({
     scrollTop: 2800
   }, duration);
+  console.log('스크롤의 속도는?', duration);
+
   return false;
 })
 
