@@ -196,6 +196,7 @@ $('.skill').on('click', function () {
   $('html, body').animate({
     scrollTop: 2800
   }, duration);
+  console.log('스크롤의 속도는?', duration);
   return false;
 });
 $('.project').on('click', function () {
@@ -735,7 +736,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51448" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57425" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
