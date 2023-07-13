@@ -9,7 +9,7 @@ const lnbTime = document.querySelector('.time li')
 }, 1000)
   */
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   var scrollPosition = window.scrollY;
   console.log(scrollPosition);
 });
@@ -41,8 +41,59 @@ const skill = document.querySelector('.skill');
 const project = document.querySelector('.project');
 const contact = document.querySelector('.contact');
 
-/* const newsPage = document.querySelector('.news_page');
- */
+
+
+
+/* myAnimation.scrollTrigger.kill(); */
+
+$('.intro').on('click', function () {
+  $('html, body').animate({
+    scrollTop: 0
+  }, 900);
+  return false;
+})
+
+$('.profile').on('click', function () {
+  $('html, body').animate({
+    scrollTop: 1060
+  }, 900);
+  return false;
+})
+
+$('.skill').on('click', function () {
+  $('html, body').animate({
+    scrollTop: 2800
+  }, 900);
+  return false;
+})
+
+$('.project').on('click', function () {
+  let newsPageBottom = $('.news_page_bottom');
+  let targetScrollTop;
+  if (newsPageBottom.css('display') === 'none') {
+      targetScrollTop = 6480;
+  } else {
+      targetScrollTop = 3900;
+  }
+  $('html, body').animate({
+      scrollTop: targetScrollTop
+  }, 900);
+  return false;
+});
+
+$('.contact').on('click', function () {
+  let newsPageBottom = $('.news_page_bottom');
+  let targetScrollTop;
+  if (newsPageBottom.css('display') === 'none') {
+      targetScrollTop = 7880;
+  } else {
+      targetScrollTop = 3900;
+  }
+  $('html, body').animate({
+    scrollTop: targetScrollTop
+}, 900.)
+return false;
+});
 
 const LanguageText = document.querySelector('.Language_box h3')
 const LanguageText2 = document.querySelectorAll('.Language_box .num')
@@ -68,7 +119,7 @@ window.addEventListener('scroll', () => {
     intro.style.color = ''
   }
 
-  if (window.scrollY >= 1100) {
+  if (window.scrollY >= 1060) {
     profile.style.color = 'red'
     intro.style.color = 'black'
     /* newsPage.classList.remove('zoom') */
@@ -78,10 +129,10 @@ window.addEventListener('scroll', () => {
 
   }
 
-  if (window.scrollY >= 2740) {
+  if (window.scrollY >= 2800) {
     profile.style.color = ''
     skill.style.color = 'red'
-    
+
   } else {
     skill.style.color = ''
     LanguageText.style.color = ''
@@ -105,11 +156,12 @@ window.addEventListener('scroll', () => {
 
 
   if (window.scrollY >= 3800) {
-    header.style.top = '-90px' 
+    header.style.top = '-90px'
     skill.style.color = ''
-  } /* else {
-    header.style.top = ''
-  } */
+  }
+  /* else {
+     header.style.top = ''
+   } */
 
 
 
@@ -160,7 +212,7 @@ window.addEventListener('scroll', function () {
     skillPageH2.style.backgroundColor = 'rgba(255, 255, 255, 20%)'
     /* skillPageH2.style.color = 'black' */
 
-   
+
     gitImg.style.filter = 'invert(100%)'
     gitHubImg.style.filter = 'invert(100%)'
 
@@ -219,8 +271,8 @@ window.addEventListener('scroll', function () {
     cssImg.src = './img/icon/css.png';
     jsImg.src = './img/icon/js.png';
     jqueryImg.src = './img/icon/jquery.png';
-    
-    
+
+
     gitImg.style.filter = ''
     gitHubImg.style.filter = ''
 
@@ -234,26 +286,25 @@ window.addEventListener('scroll', function () {
 gsap.registerPlugin(ScrollTrigger);
 
 gsap
-.timeline({
-  scrollTrigger: {
-    trigger: ".profile_right2",
-    pin: false,
-    start: "bottom +=70px",
-    end: "100px",
-    scrub: 1,
-  },
-  defaults: {
-    ease: "none",
-  },
-})
-.to(
-  document.body,
-  {
-    delay: 0.3,
-    backgroundColor: "#000",
-  },
-  "start"
-)
+  .timeline({
+    scrollTrigger: {
+      trigger: ".profile_right2",
+      pin: false,
+      start: "bottom +=70px",
+      end: "100px",
+      scrub: 1,
+    },
+    defaults: {
+      ease: "none",
+    },
+  })
+  .to(
+    document.body, {
+      delay: 0.3,
+      backgroundColor: "#000",
+    },
+    "start"
+  )
 
 gsap
   .timeline({
@@ -270,31 +321,27 @@ gsap
   })
 
   .to(
-    ".news_page_top",
-    {
+    ".news_page_top", {
       scale: 3,
     },
     "start"
   )
   .to(
-    ".news_page_top",
-    {
+    ".news_page_top", {
       opacity: 0,
     },
     "start"
   )
 
   .to(
-    ".news_page_bottom",
-    {
+    ".news_page_bottom", {
       delay: 0.1,
       scale: 1.5,
     },
     "start"
   )
   .to(
-    ".news_page_bottom",
-    {
+    ".news_page_bottom", {
       delay: 0,
       opacity: 1,
     },
@@ -302,16 +349,14 @@ gsap
   )
 
   .to(
-    ".project_Page",
-    {
+    ".project_Page", {
       delay: 0,
       scale: 1,
     },
     "start"
   )
   .to(
-    ".project_Page",
-    {
+    ".project_Page", {
       delay: 0,
       opacity: 1,
     },
@@ -319,12 +364,12 @@ gsap
   )
 
 
-  
-  $(".small_news_box")
+
+$(".small_news_box")
   .on('mousemove', magnify)
   .prepend("<div class='magnifier'></div>")
   .children('.magnifier').css({
-      "background": "url('" + $(".small_news").attr("src") + "') no-repeat"
+    "background": "url('" + $(".small_news").attr("src") + "') no-repeat"
   });
 
 var target = $('.small_news');
@@ -333,23 +378,23 @@ var magnifier = $('.magnifier');
 
 function magnify(e) {
 
-// 1
-var mouseX = e.pageX - $(this).offset().left;
-var mouseY = e.pageY - $(this).offset().top;
+  // 1
+  var mouseX = e.pageX - $(this).offset().left;
+  var mouseY = e.pageY - $(this).offset().top;
 
-// 2
-if (mouseX < $(this).width() && mouseY < $(this).height() && mouseX > 0 && mouseY > 0) {
+  // 2
+  if (mouseX < $(this).width() && mouseY < $(this).height() && mouseX > 0 && mouseY > 0) {
     magnifier.fadeIn(100);
-} else {
+  } else {
     magnifier.fadeOut(100);
-}
+  }
 
-// 3
-if (magnifier.is(":visible")) {
+  // 3
+  if (magnifier.is(":visible")) {
 
     // 4    
     var rx = -(mouseX / target.width() * target[0].naturalWidth - magnifier.width() / 2);
-    var ry = -(mouseY / target.height() * target[0].naturalHeight - magnifier.height()  /2);
+    var ry = -(mouseY / target.height() * target[0].naturalHeight - magnifier.height() / 2);
 
     // 5
     var px = mouseX - magnifier.width() / 2;
@@ -357,11 +402,11 @@ if (magnifier.is(":visible")) {
 
     // 6
     magnifier.css({
-        left: px,
-        top: py,
-        backgroundPosition: rx + "px " + ry + "px"
+      left: px,
+      top: py,
+      backgroundPosition: rx + "px " + ry + "px"
     });
-}
+  }
 }
 
 
@@ -372,16 +417,18 @@ let targetScale = 1.5;
 gsap.to(".news_page_bottom", {
 
   scale: targetScale,
-  onUpdate: function() {
+  onUpdate: function () {
     let currentScale = gsap.getProperty(".news_page_bottom", "scale");
     if (currentScale >= targetScale) {
-      gsap.to(".news_page_bottom", { opacity: 0 });
+      gsap.to(".news_page_bottom", {
+        opacity: 0
+      });
       console.log("스케일의 크키가 1.5라면 오퍼시티 0을 부여합니다")
     }
   }
 });
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
   // 스크롤 위치 감지
   let scrollPosition = window.scrollY;
   let targetPosition = 6350; // 원하는 위치
@@ -390,62 +437,60 @@ window.addEventListener('scroll', function() {
   let isNewsPageBottomVisible = getComputedStyle(newsPageBottom).opacity === '1';
   let isNewsPageBottomVisibles = getComputedStyle(newsPageBottom).display === 'none';
 
-  if (scrollPosition >= targetPosition || scrollPosition <= maxPosition  && isNewsPageBottomVisible) {
+  if (scrollPosition >= targetPosition || scrollPosition <= maxPosition && isNewsPageBottomVisible) {
     // 스크롤 막기
     document.body.style.overflow = 'hidden';
-  } 
+  }
 
-  if (isNewsPageBottomVisibles){    
+  if (isNewsPageBottomVisibles) {
     document.body.style.overflow = '';
   }
-  
+
 });
 
 
 
 let newsPageBottom = document.getElementById('news_page_bottom');
 
-$(document).ready(function() {
-  $('.hidden_btn').click(function() {
-    $('.news_page_bottom').fadeOut(function(){
+$(document).ready(function () {
+  $('.hidden_btn').click(function () {
+    $('.news_page_bottom').fadeOut(function () {
       $('.project_Page').fadeIn(1000, 'swing');
     });
     // 스크롤 활성화
     document.body.style.overflow = '';
   });
 });
-hiddenBtn.addEventListener('mouseover' , () => {
+hiddenBtn.addEventListener('mouseover', () => {
   hiddenBtn.src = "./img/페이지꾸미기/on랜턴.png"
 })
 
 
-hiddenBtn.addEventListener('mouseout' , () => {
+hiddenBtn.addEventListener('mouseout', () => {
   hiddenBtn.src = "./img/페이지꾸미기/off랜턴.png"
 })
 
 
-hiddenBtn.addEventListener('click' , () => {
+hiddenBtn.addEventListener('click', () => {
 
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function () {
     if (window.scrollY >= 6400) {
-      header.style.top = '0' 
+      header.style.top = '0'
       project.style.color = 'red'
-    }
-    else{
+    } else {
       project.style.color = ''
     }
 
     if (window.scrollY >= 7400) {
       contact.style.color = 'red'
       project.style.color = ''
-    }
-    else{
+    } else {
       contact.style.color = ''
     }
   })
- 
 
-  
+
+
 
 })
 
@@ -480,11 +525,11 @@ introVideoElement.addEventListener("loadeddata", () => {
 });
 
 
-videoSkip.addEventListener('click' , () => {
+videoSkip.addEventListener('click', () => {
   console.log("이건 스킵으로 인한 페이드 아웃");
   clearTimeout(videoTimer);
   introVideo.classList.add("fade-out");
-  
+
 })
 
 introVideo.addEventListener("transitionend", (event) => {
@@ -520,7 +565,7 @@ const soloExit = document.querySelector('.solo_exit')
 let reactReadMoreClick = false;
 detailProject.style.visibility = 'hidden'
 
-soloReadMore.addEventListener('click' , (event) => {
+soloReadMore.addEventListener('click', (event) => {
   event.preventDefault();
   detailProject.style.visibility = 'visible'
   /* soloProject.style.display = 'flex' */
@@ -534,40 +579,40 @@ soloReadMore.addEventListener('click' , (event) => {
 
 function SwiperSolo1() {
 
-const swiper = new Swiper('.solo_project1_swiper', {
+  const swiper = new Swiper('.solo_project1_swiper', {
 
-  loop: true,
-  /* loopedSlides: 1, */
+    loop: true,
+    /* loopedSlides: 1, */
 
-  effect: 'coverflow',
-  grabCursor: true,
-  centeredSlides: true,
-  slidesPerView: '3',
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: '3',
 
-  coverflowEffect: {
-    rotate: 50,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows : true,
-  },
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
 
-  // If we need pagination
-  pagination: {
-    el: '.solo_project1_swiper .swiper-pagination',
-  },
+    // If we need pagination
+    pagination: {
+      el: '.solo_project1_swiper .swiper-pagination',
+    },
 
-  autoplay: {
-    delay: 1500,
-    disableOnInteraction: false,
-  },
+    autoplay: {
+      delay: 1500,
+      disableOnInteraction: false,
+    },
 
-});
+  });
 }
 
 SwiperSolo1();
 
-$('.moment_h2').html(function(i, html) {
+$('.moment_h2').html(function (i, html) {
   var chars = $.trim(html).split("");
 
   return '<span>' + chars.join('</span><span>') + '</span>';
@@ -576,14 +621,14 @@ $('.moment_h2').html(function(i, html) {
 function profile_swiper() {
 
 
-const swiper = new Swiper(".profile_swiper", {
-  direction: "horizontal",
-  loop: true,
+  const swiper = new Swiper(".profile_swiper", {
+    direction: "horizontal",
+    loop: true,
 
-  effect: 'cards',
-  grabCursor: true,
+    effect: 'cards',
+    grabCursor: true,
 
-});
+  });
 
 }
 profile_swiper();
@@ -594,12 +639,12 @@ const introVideoReplayImg = document.querySelector('.intro_video_replay_img')
 const replayIco = document.querySelector('.replay_ico')
 
 
-introVideoReplayImg.addEventListener('mouseover' , () => {
-  introVideoReplayImg.src = './img/본인/인트로영상다시보기호버.gif'  
+introVideoReplayImg.addEventListener('mouseover', () => {
+  introVideoReplayImg.src = './img/본인/인트로영상다시보기호버.gif'
 })
 
-introVideoReplayImg.addEventListener('mouseout' , () => {
-  introVideoReplayImg.src = "./img/본인/인트로영상다시보기2.png"  
+introVideoReplayImg.addEventListener('mouseout', () => {
+  introVideoReplayImg.src = "./img/본인/인트로영상다시보기2.png"
 })
 
 
@@ -610,10 +655,10 @@ introVideoReplayImg.addEventListener('click', () => {
   introVideoElement.currentTime = 0;
 
   document.body.style.overflow = 'hidden';
-  videoTimer = setTimeout(() => { 
+  videoTimer = setTimeout(() => {
     introVideo.classList.add("fade-out");
     console.log('이미지를 통해 클릭된 영상 마무리')
-   }, 7700);
+  }, 7700);
 });
 
 replayIco.addEventListener('click', () => {
@@ -623,10 +668,10 @@ replayIco.addEventListener('click', () => {
   introVideoElement.currentTime = 0;
 
   document.body.style.overflow = 'hidden';
-  videoTimer = setTimeout(() => { 
+  videoTimer = setTimeout(() => {
     introVideo.classList.add("fade-out");
     console.log('아이콘을 통해 클릭된 영상 마무리')
-   }, 7700);
+  }, 7700);
 });
 
 
@@ -640,14 +685,14 @@ const soloProject1CodeReturn = document.querySelector('.solo_project1_code_retur
 soloProject1CodeContainer.style.display = 'none'
 
 soloCodeView.forEach(soloCodeViewAll => {
-  
-  soloCodeViewAll.addEventListener('click' , () =>{
+
+  soloCodeViewAll.addEventListener('click', () => {
     console.log("코드리뷰 버튼을 클릭합니다")
     soloProject1BoxLeft.style.visibility = 'hidden'
     soloProject1BoxRight.style.visibility = 'hidden'
     soloProject1CodeContainer.style.display = 'block'
     console.log("정상작동시,개인프로젝트 박스 왼쪽 오른쪽을 히든처리, 코드 컨테이너의 디스플레이가 블럭처리됩니다 ")
-  
+
   })
 })
 
@@ -659,7 +704,7 @@ soloProject1CodeReturn.addEventListener('click', () => {
 
 })
 
-soloExit.addEventListener('click' , () => {
+soloExit.addEventListener('click', () => {
   detailProject.style.visibility = 'hidden'
   soloProject.style.visibility = 'hidden'
   soloProject1BoxLeft.style.visibility = 'hidden'
@@ -667,22 +712,22 @@ soloExit.addEventListener('click' , () => {
   soloProject1CodeContainer.style.display = 'none'
   document.body.style.overflow = ''
 
-  
+
 
 })
 
 const tabList = document.querySelectorAll('.solo_project1_tab_menu .list li');
- 
-for (let i=0; i < tabList.length; i++){
+
+for (let i = 0; i < tabList.length; i++) {
   let btn = tabList[i].querySelector('.btn')
-  btn.addEventListener('click' , function (event) {
-  event.preventDefault();
-  for (let j=0; j < tabList.length; j++){
-    tabList[j].classList.remove('is_on');
-    console.log("탭메뉴 실행")
-  }
-  this.parentNode.classList.add('is_on');
-})
+  btn.addEventListener('click', function (event) {
+    event.preventDefault();
+    for (let j = 0; j < tabList.length; j++) {
+      tabList[j].classList.remove('is_on');
+      console.log("탭메뉴 실행")
+    }
+    this.parentNode.classList.add('is_on');
+  })
 
 }
 
@@ -692,22 +737,24 @@ function solo1CodeSwiper() {
     // Optional parameters
     direction: 'horizontal',
     loop: true,
-  
+
     // Navigation arrows
     navigation: {
       nextEl: '.solo1_code_swiper .swiper-button-next',
       prevEl: '.solo1_code_swiper .swiper-button-prev',
     },
-  
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.solo1_code_swiper .swiper-scrollbar',
+
+    pagination: {
+      el: ".solo1_code_swiper .swiper-pagination",
+      type: "progressbar",
     },
   });
 
 }
 
 solo1CodeSwiper();
+
+
 
 
 AOS.init();

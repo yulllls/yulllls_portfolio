@@ -152,9 +152,52 @@ var skill = document.querySelector('.skill');
 var project = document.querySelector('.project');
 var contact = document.querySelector('.contact');
 
-/* const newsPage = document.querySelector('.news_page');
- */
+/* myAnimation.scrollTrigger.kill(); */
 
+$('.intro').on('click', function () {
+  $('html, body').animate({
+    scrollTop: 0
+  }, 900);
+  return false;
+});
+$('.profile').on('click', function () {
+  $('html, body').animate({
+    scrollTop: 1060
+  }, 900);
+  return false;
+});
+$('.skill').on('click', function () {
+  $('html, body').animate({
+    scrollTop: 2800
+  }, 900);
+  return false;
+});
+$('.project').on('click', function () {
+  var newsPageBottom = $('.news_page_bottom');
+  var targetScrollTop;
+  if (newsPageBottom.css('display') === 'none') {
+    targetScrollTop = 6480;
+  } else {
+    targetScrollTop = 3900;
+  }
+  $('html, body').animate({
+    scrollTop: targetScrollTop
+  }, 900);
+  return false;
+});
+$('.contact').on('click', function () {
+  var newsPageBottom = $('.news_page_bottom');
+  var targetScrollTop;
+  if (newsPageBottom.css('display') === 'none') {
+    targetScrollTop = 7880;
+  } else {
+    targetScrollTop = 3900;
+  }
+  $('html, body').animate({
+    scrollTop: targetScrollTop
+  }, 900.);
+  return false;
+});
 var LanguageText = document.querySelector('.Language_box h3');
 var LanguageText2 = document.querySelectorAll('.Language_box .num');
 var FrameWorkText = document.querySelector('.FrameWork_h3');
@@ -175,7 +218,7 @@ window.addEventListener('scroll', function () {
     /* intro.style.marginTop = '120px' */
     intro.style.color = '';
   }
-  if (window.scrollY >= 1100) {
+  if (window.scrollY >= 1060) {
     profile.style.color = 'red';
     intro.style.color = 'black';
     /* newsPage.classList.remove('zoom') */
@@ -183,7 +226,7 @@ window.addEventListener('scroll', function () {
     profile.style.color = '';
     intro.style.color = '';
   }
-  if (window.scrollY >= 2740) {
+  if (window.scrollY >= 2800) {
     profile.style.color = '';
     skill.style.color = 'red';
   } else {
@@ -206,9 +249,10 @@ window.addEventListener('scroll', function () {
   if (window.scrollY >= 3800) {
     header.style.top = '-90px';
     skill.style.color = '';
-  } /* else {
-    header.style.top = ''
-    } */
+  }
+  /* else {
+     header.style.top = ''
+   } */
 });
 
 var gitImg = document.querySelector('.gitImg');
@@ -618,9 +662,9 @@ function solo1CodeSwiper() {
       nextEl: '.solo1_code_swiper .swiper-button-next',
       prevEl: '.solo1_code_swiper .swiper-button-prev'
     },
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.solo1_code_swiper .swiper-scrollbar'
+    pagination: {
+      el: ".solo1_code_swiper .swiper-pagination",
+      type: "progressbar"
     }
   });
 }
@@ -651,7 +695,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50529" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50918" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
