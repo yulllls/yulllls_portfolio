@@ -154,48 +154,88 @@ var contact = document.querySelector('.contact');
 
 /* myAnimation.scrollTrigger.kill(); */
 
-$('.intro').on('click', function () {
+/* $('.intro').on('click', function () {
   $('html, body').animate({
     scrollTop: 0
   }, 900);
   return false;
+}) */
+
+$('.intro').on('click', function () {
+  var scrollPosition = window.scrollY;
+  var targetPosition = 4000;
+  var duration = 800;
+  if (scrollPosition >= targetPosition) {
+    duration = 2800;
+  }
+  console.log('스크롤의 속도는?', duration);
+  $('html, body').animate({
+    scrollTop: 0
+  }, duration);
+  return false;
 });
 $('.profile').on('click', function () {
+  var scrollPosition = window.scrollY;
+  var targetPosition = 4000;
+  var duration = 800;
+  if (scrollPosition >= targetPosition) {
+    duration = 2500;
+  }
   $('html, body').animate({
     scrollTop: 1060
-  }, 900);
+  }, duration);
   return false;
 });
 $('.skill').on('click', function () {
+  var scrollPosition = window.scrollY;
+  var targetPosition = 4000;
+  var duration = 800;
+  if (scrollPosition >= targetPosition) {
+    duration = 2500;
+  }
   $('html, body').animate({
     scrollTop: 2800
-  }, 900);
+  }, duration);
   return false;
 });
 $('.project').on('click', function () {
   var newsPageBottom = $('.news_page_bottom');
   var targetScrollTop;
+  var duration = 800;
   if (newsPageBottom.css('display') === 'none') {
     targetScrollTop = 6480;
+    var scrollPosition = window.scrollY;
+    var targetPosition = 6470;
+    if (scrollPosition <= targetPosition) {
+      duration = 2500;
+    }
   } else {
     targetScrollTop = 3900;
   }
   $('html, body').animate({
     scrollTop: targetScrollTop
-  }, 900);
+  }, duration);
+  console.log('스크롤의 속도는?', duration);
   return false;
 });
 $('.contact').on('click', function () {
   var newsPageBottom = $('.news_page_bottom');
   var targetScrollTop;
+  var duration = 800;
   if (newsPageBottom.css('display') === 'none') {
     targetScrollTop = 7880;
+    var scrollPosition = window.scrollY;
+    var targetPosition = 6470;
+    if (scrollPosition <= targetPosition) {
+      duration = 2800;
+    }
   } else {
     targetScrollTop = 3900;
   }
   $('html, body').animate({
     scrollTop: targetScrollTop
-  }, 900.);
+  }, duration);
+  console.log('스크롤의 속도는?', duration);
   return false;
 });
 var LanguageText = document.querySelector('.Language_box h3');
@@ -355,7 +395,7 @@ gsap.timeline({
   delay: 0.3,
   backgroundColor: "#000"
 }, "start");
-gsap.timeline({
+var tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".news_page",
     pin: true,
@@ -695,7 +735,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50918" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51448" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

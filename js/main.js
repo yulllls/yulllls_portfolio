@@ -46,52 +46,112 @@ const contact = document.querySelector('.contact');
 
 /* myAnimation.scrollTrigger.kill(); */
 
-$('.intro').on('click', function () {
+/* $('.intro').on('click', function () {
   $('html, body').animate({
     scrollTop: 0
   }, 900);
   return false;
-})
+}) */
+
+$('.intro').on('click', function () {
+  let scrollPosition = window.scrollY;
+  let targetPosition = 4000;
+  
+  let duration = 800;
+  if (scrollPosition >= targetPosition) {
+    duration = 2800;
+  }
+  
+  console.log('스크롤의 속도는?', duration);
+
+  $('html, body').animate({
+    scrollTop: 0
+  }, duration);
+  
+  return false;
+});
 
 $('.profile').on('click', function () {
+  let scrollPosition = window.scrollY;
+  let targetPosition = 4000;
+  
+  let duration = 800;
+  if (scrollPosition >= targetPosition) {
+    duration = 2500;
+  }
   $('html, body').animate({
     scrollTop: 1060
-  }, 900);
+  }, duration);
   return false;
 })
 
 $('.skill').on('click', function () {
+  let scrollPosition = window.scrollY;
+  let targetPosition = 4000;
+  
+  let duration = 800;
+  if (scrollPosition >= targetPosition) {
+    duration = 2500;
+  }
+
   $('html, body').animate({
     scrollTop: 2800
-  }, 900);
+  }, duration);
   return false;
 })
+
 
 $('.project').on('click', function () {
   let newsPageBottom = $('.news_page_bottom');
   let targetScrollTop;
+  let duration = 800;
+
   if (newsPageBottom.css('display') === 'none') {
       targetScrollTop = 6480;
+
+      let scrollPosition = window.scrollY;
+      let targetPosition = 6470;
+      
+      if (scrollPosition <= targetPosition) {
+        duration = 2500;
+      }
+
   } else {
       targetScrollTop = 3900;
   }
+
+
   $('html, body').animate({
       scrollTop: targetScrollTop
-  }, 900);
+  }, duration);
+
+  console.log('스크롤의 속도는?', duration);
+
   return false;
+
 });
 
 $('.contact').on('click', function () {
   let newsPageBottom = $('.news_page_bottom');
   let targetScrollTop;
+  let duration = 800;
   if (newsPageBottom.css('display') === 'none') {
       targetScrollTop = 7880;
+      let scrollPosition = window.scrollY;
+      let targetPosition = 6470;
+      
+      if (scrollPosition <= targetPosition) {
+        duration = 2800;
+      }
+
   } else {
       targetScrollTop = 3900;
   }
   $('html, body').animate({
     scrollTop: targetScrollTop
-}, 900.)
+},duration)
+console.log('스크롤의 속도는?', duration);
+
 return false;
 });
 
@@ -306,7 +366,7 @@ gsap
     "start"
   )
 
-gsap
+  let tl =  gsap
   .timeline({
     scrollTrigger: {
       trigger: ".news_page",
